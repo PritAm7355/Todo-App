@@ -12,6 +12,7 @@ export default function Login() {
     if (username.trim() && role) {
       localStorage.setItem("user", JSON.stringify({ username, role }));
       navigate("/Todo"); // Redirect to To-Do app
+      
     } else {
       alert("Please enter a valid username and select a role.");
     }

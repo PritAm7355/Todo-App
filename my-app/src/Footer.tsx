@@ -6,7 +6,7 @@ import { faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/fre
 
 const Footer: React.FC = () => {
   return (
-    <footer className="absolute bottom-0 w-full bg-gray-800   text-white px-4 mt-auto">
+    <footer className="absolute bottom-0 w-full bg-gray-800  text-white px-4 mt-auto">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-3 text-center md:text-left py-1">
         {/* First Column: Logo */}
         <div className="flex justify-center md:justify-start">
@@ -33,18 +33,18 @@ const Footer: React.FC = () => {
 
         {/* Fourth Column: Find us at */}
         <div>
-          <h3 className="text-lg font-semibold mb-2 text-center md:text-center text-slate-400 ml-20">Find us at</h3>
+          <h3 className="text-lg font-semibold mb-2 text-right md:text-center text-slate-400 ml-40">Find us at</h3>
           <div className="flex justify-center md:justify-end space-x-6 p-4">
-            <a href="https://facebook.com" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/thehouseofbespoke/" className="text-blue-600 hover:text-blue-800">
               <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
-            <a href="https://twitter.com" className="text-blue-400 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/thobdotstudio/" className="text-blue-400 hover:text-blue-600">
               <FontAwesomeIcon icon={faTwitter} size="2x" />
             </a>
-            <a href="https://www.instagram.com/thob.studio/" className="text-pink-600 hover:text-pink-800" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/thob.studio/" className="text-pink-600 hover:text-pink-800">
               <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
-            <a href="https://www.linkedin.com/company/thob3dstudio/" className="text-blue-700 hover:text-blue-900" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/thob3dstudio/" className="text-blue-700 hover:text-blue-900">
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
           </div>

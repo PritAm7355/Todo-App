@@ -9,7 +9,7 @@ const Header = () => {
   const [humidity, setHumidity] = useState<number | null>(null);
   const [icon, setIcon] = useState<string | null>(null);
   const username = localStorage.getItem('username');
-  const[dateTime, setDateTime] = useState("");
+  
 
 const motivationalQuotes = [
   "Believe in yourself and all that you are!",
@@ -27,7 +27,7 @@ const motivationalQuotes = [
     setQuote(motivationalQuotes[randomIndex]);
   }, []); // Runs only on component mount
 
-  localStorage.setItem('username', 'Yuti');
+ 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
@@ -49,23 +49,15 @@ const motivationalQuotes = [
     fetchWeather();
   }, []);
 
-  //Todo Date and Time
-  
-  setInterval(()=>{
-    const now= new Date ();
-  const formattedDate= now.toLocaleDateString();
-  const formattedTime= now.toLocaleTimeString();
-  setDateTime(`${formattedDate}-${formattedTime}`)},1000);
 
   return (
-    <header className="bg-gray-800 text-white py-4 px-6 flex justify-between items-center shadow-md">
+    <header className="bg-[#0A2647]  text-white py-4 px-6 flex justify-between items-center shadow-md">
       <p className="italic text-xl">"{quote}"</p>
-      <h2 className="date-time">{dateTime}</h2>
       <div className="flex items-center space-x-4">
-        {icon && <img src={icon} alt="Weather Icon" className="w-12 h-12" />}
+        {icon && <img src={icon} alt="Weather Icon" className="w-12 h-12 hover:scale-150 transition-transform duration-300" />}
         <div>
-          {temperature !== null ? <p className="text-lg">🌡 {temperature}°C</p> : <p>Loading...</p>}
-          {humidity !== null ? <p className="text-lg">💧 {humidity}% Humidity</p> : <p>Loading...</p>}
+          {temperature !== null ? <p className="text-lg hover:text-blue-300 transition-colors duration-300">🌡 {temperature}°C</p> : <p>Loading...</p>}
+          {humidity !== null ? <p className="text-lg hover:text-green-300 transition-colors duration-300">💧 {humidity}% Humidity</p> : <p>Loading...</p>}
         </div>
       </div>
     </header>
