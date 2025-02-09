@@ -11,22 +11,6 @@ const Header = () => {
   const username = localStorage.getItem('username');
   
 
-const motivationalQuotes = [
-  "Believe in yourself and all that you are!",
-  "Your limitation—it’s only your imagination.",
-  "Push yourself, because no one else will do it for you.",
-  "Success doesn’t just find you. You have to go out and get it.",
-  "Dream it. Wish it. Do it.",
-  "Hard work pays off!",
-]
-  const [quote, setQuote] = useState("");
-
-  useEffect(() => {
-    // Select a random quote
-    const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-    setQuote(motivationalQuotes[randomIndex]);
-  }, []); // Runs only on component mount
-
  
   useEffect(() => {
     const fetchWeather = async () => {
@@ -52,7 +36,7 @@ const motivationalQuotes = [
 
   return (
     <header className="bg-[#0A2647]  text-white py-4 px-6 flex justify-between items-center shadow-md">
-      <p className="italic text-xl">"{quote}"</p>
+      {username && <p className="text-lg font-semibold">Welcome, {username}</p>}
       <div className="flex items-center space-x-4">
         {icon && <img src={icon} alt="Weather Icon" className="w-12 h-12 hover:scale-150 transition-transform duration-300" />}
         <div>

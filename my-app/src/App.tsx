@@ -1,7 +1,7 @@
 //import React from 'react'
 import Login from './Login'
 import './index.css';
- import Todo from './components/Todo';
+ import Middle from './components/Middle';
 
 
 const App = () => {
@@ -9,6 +9,9 @@ const App = () => {
     <div className='text-2xl  pr-5 bg-slate-600'>
     
      <Login/> 
+     
+
+     
      
     
     </div>
