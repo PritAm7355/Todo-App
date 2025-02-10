@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Todo from './Todo'
 
 const API_KEY = "646824f2b7b86caffec1d0b16ea77f79"; // 🔹 Replace with your API key
 const CITY = "Pune"; // 🔹 Change this to your preferred city
@@ -10,7 +11,6 @@ const Header = () => {
   const [icon, setIcon] = useState<string | null>(null);
   const username = localStorage.getItem('username');
   
-
  
   useEffect(() => {
     const fetchWeather = async () => {
@@ -35,8 +35,8 @@ const Header = () => {
 
 
   return (
-    <header className="bg-[#0A2647]  text-white py-4 px-6 flex justify-between items-center shadow-md">
-      {username && <p className="text-lg font-semibold">Welcome, {username}</p>}
+    <header className="bg-[#0A2647]  text-white font-semibold py-4 px-6 flex justify-between items-center shadow-md">
+      {username && <p className="text-2xl font-semibold">Welcome, {username}</p>}
       <div className="flex items-center space-x-4">
         {icon && <img src={icon} alt="Weather Icon" className="w-12 h-12 hover:scale-150 transition-transform duration-300" />}
         <div>
