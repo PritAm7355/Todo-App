@@ -33,17 +33,18 @@ const Header = () => {
     fetchWeather();
   }, []);
 
-  const handleLogout = () => { //logout button
+  const handleLogout = () => { 
     navigate("/Login");
   };
-
+  
+ 
   return (
     <header className="bg-[#0A2647] text-white font-semibold py-4 px-6 flex justify-between items-center shadow-md">
       {username && <p className="text-2xl font-semibold">Welcome, {username}</p>}
       <div className="flex items-center space-x-4">
         <button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-300 fas fa-sign-out-alt"
+          className="bg-red-500 hover:bg-red-600 hover:scale-90 hover:cursor-progress text-white px-4 py-2 rounded-lg transition duration-300 fas fa-sign-out-alt"
         >
           Logout
         </button>
@@ -51,7 +52,7 @@ const Header = () => {
           <img
             src={icon}
             alt="Weather Icon"
-            className="w-12 h-12 hover:scale-150 transition-transform duration-300"
+            className="w-12 h-12 hover:scale-150 transition-transform duration-500 animate-spin"
           />
         )}
         <div>
