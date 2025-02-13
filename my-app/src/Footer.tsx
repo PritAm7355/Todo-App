@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <footer className="absolute bottom-0 w-full overflow-hidden bg-gray-800  text-white px-4 mt-auto mb-0">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-3 text-center md:text-left py-1">
         {/* First Column: Logo */}
-        <div className="flex justify-center md:justify-start">
+        <div className="flex justify-center md:justify-start hover:scale-75 transition duration-500 ease-in-out">
           <a href="https://thob.studio/">
             <img src={Logo} alt="Logo" className="h-20 w-50 mt-4"/>
           </a>
@@ -33,17 +33,17 @@ const Footer: React.FC = () => {
         {/* Fourth Column: Find us at */}
         <div>
           <h3 className="text-lg font-semibold mb-2 text-right md:text-center text-slate-400 ml-40">Find us at</h3>
-          <div className="flex justify-center md:justify-end space-x-6 p-4">
-            <a href="https://www.facebook.com/thehouseofbespoke/" className="text-blue-600 hover:text-blue-800">
+          <div className="flex justify-center md:justify-end space-x-6 p-4 animate-pulse">
+            <a href="https://www.facebook.com/thehouseofbespoke/" className="text-blue-600 hover:text-blue-800 transition-transform duration-300 ease-in-out hover:scale-125">
               <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
-            <a href="https://x.com/thobdotstudio/" className="text-blue-400 hover:text-blue-600">
+            <a href="https://x.com/thobdotstudio/" className="text-blue-400 hover:text-blue-600 transition-transform duration-300 ease-in-out hover:scale-125">
               <FontAwesomeIcon icon={faTwitter} size="2x" />
             </a>
-            <a href="https://www.instagram.com/thob.studio/" className="text-pink-600 hover:text-pink-800">
+            <a href="https://www.instagram.com/thob.studio/" className="text-pink-600 hover:text-pink-800 transition-transform duration-300 ease-in-out hover:scale-125">
               <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
-            <a href="https://www.linkedin.com/company/thob3dstudio/" className="text-blue-700 hover:text-blue-900">
+            <a href="https://www.linkedin.com/company/thob3dstudio/" className="text-blue-700 hover:text-blue-900 transition-transform duration-300 ease-in-out hover:scale-125">
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
           </div>
