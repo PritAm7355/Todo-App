@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 const API_KEY = "646824f2b7b86caffec1d0b16ea77f79"; // 🔹 Replace with your API key
@@ -33,40 +34,61 @@ const Header = () => {
     fetchWeather();
   }, []);
 
-  const handleLogout = () => { 
+  const handleLogout = () => {
     navigate("/Login");
   };
-  
- 
+
   return (
-    <header className="bg-[#0A2647] text-white font-semibold py-4 px-6 flex justify-between items-center shadow-md">
-      {username && <p className="text-2xl font-semibold">Welcome, {username}</p>}
-      <div className="flex items-center space-x-4">
+    <header className="bg-[#0A2647] text-white font-semibold py-4 px-6 shadow-md flex flex-col sm:flex-row items-center justify-between w-full">
+      {/* Username (Hidden on mobile if empty) */}
+      <motion.div 
+      className="title"
+      initial={{ y: -250 }} 
+      animate={{ y: -10 }}
+    >
+      {username && (
+        <p className="text-lg sm:text-2xl font-semibold mb-2 sm:mb-0">
+          Welcome, {username}
+        </p>
+      )}
+       </motion.div>
+
+      {/* Weather Info & Logout (Flexible Layout) */}
+      <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
+        {/* Weather Icon & Data */}
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          {icon && (
+            <img
+              src={icon}
+              alt="Weather Icon"
+              className="w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-500 hover:scale-125"
+            />
+          )}
+          <div className="text-center sm:text-left">
+            {temperature !== null ? (
+              <p className="text-sm sm:text-lg hover:text-blue-300 transition-colors duration-300">
+                🌡 {temperature}°C
+              </p>
+            ) : (
+              <p>Loading...</p>
+            )}
+            {humidity !== null ? (
+              <p className="text-sm sm:text-lg hover:text-green-300 transition-colors duration-300">
+                💧 {humidity}% Humidity
+              </p>
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+        </div>
+
+        {/* Logout Button (Scales on hover) */}
         <button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 hover:scale-90 hover:cursor-progress text-white px-4 py-2 rounded-lg transition duration-300 fas fa-sign-out-alt"
+          className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg transition-all duration-300 sm:px-4 sm:py-2 hover:scale-95"
         >
           Logout
         </button>
-        {icon && (
-          <img
-            src={icon}
-            alt="Weather Icon"
-            className="w-12 h-12 hover:scale-150 transition-transform duration-500 animate-spin"
-          />
-        )}
-        <div>
-          {temperature !== null ? (
-            <p className="text-lg hover:text-blue-300 transition-colors duration-300">🌡 {temperature}°C</p>
-          ) : (
-            <p>Loading...</p>
-          )}
-          {humidity !== null ? (
-            <p className="text-lg hover:text-green-300 transition-colors duration-300">💧 {humidity}% Humidity</p>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
       </div>
     </header>
   );
