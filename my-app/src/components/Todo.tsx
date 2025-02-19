@@ -83,10 +83,12 @@ const Todo = () => {
             Progress: {Math.round(progress)}%
           </p>
           <div className="mx-auto mt-4 w-full sm:w-8/12 bg-gray-300 h-5 rounded-full transition-transform delay-150 duration-300 hover:scale-105">
-            <div
-              style={{ width: `${progress}%` }}
-              className="bg-green-500 h-full rounded-full"
-            ></div>
+          <motion.div
+          initial={{ width: "0%" }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="bg-green-500 h-full rounded-full"
+        />
           </div>
         </div>
 
