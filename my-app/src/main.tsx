@@ -5,17 +5,28 @@ import App from "./App";
 import './index.css';
 import Middle from "./components/Middle";
 import Login from "./Login";
+import { Navigate, Outlet } from "react-router-dom";
+import AuthGuard from "./components/AuthGuard";
+
+
 
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Router>
+      <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/Middle" element={<Middle />} />
-        <Route path="/Login" element={<Login />} />
-        
+        <Route path="/login" element={<Login />} />
+        {/* Protect Middle.tsx */}
+        <Route
+          path="/middle"
+          element={
+            <AuthGuard>
+              <Middle />
+            </AuthGuard>
+          }
+        />
       </Routes>
     </Router>
   </React.StrictMode>
