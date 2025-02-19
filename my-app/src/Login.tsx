@@ -10,6 +10,7 @@ export default function Login() {
 
   const handleLogin = () => {
     if (username.trim() && role) {
+      localStorage.setItem("token", "your-auth-token");
       localStorage.setItem("username", username); 
       localStorage.setItem("user", JSON.stringify({ username, role }));
       navigate("/Middle"); 
