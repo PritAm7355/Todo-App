@@ -35,16 +35,19 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem("token");
     navigate("/Login");
   };
 
   return (
+    
     <header className="bg-[#0A2647] text-white font-semibold py-4 px-6 shadow-md flex flex-col sm:flex-row items-center justify-between w-full">
       {/* Username (Hidden on mobile if empty) */}
       <motion.div 
       className="title"
       initial={{ y: -250 }} 
       animate={{ y: -10 }}
+    
     >
       {username && (
         <p className="text-lg sm:text-2xl font-semibold mb-2 sm:mb-0">
@@ -91,6 +94,7 @@ const Header = () => {
         </button>
       </div>
     </header>
+  
   );
 };
 
